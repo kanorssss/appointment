@@ -18,6 +18,7 @@
                                 type="text"
                                 readonly
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 text-gray-700"
+                                required
                             />
                         </div>
                     </div>
@@ -33,6 +34,7 @@
                                 readonly
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 text-gray-700"
                                 placeholder="Ex. Certified True Copy of Birth Certificate"
+                                required
                             />
                         </div>
                     </div>
@@ -44,6 +46,7 @@
                         <select
                             v-model="form.number_of_copies"
                             class="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            required
                         >
                             <option value="">Select</option>
                             <option value="1">1</option>
@@ -73,6 +76,7 @@
                                 type="text"
                                 placeholder="Husband Last Name"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                required
                             />
                         </div>
                         <div>
@@ -88,6 +92,7 @@
                                 type="text"
                                 placeholder="Husband Middle Name"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                required
                             />
                         </div>
                         <div>
@@ -103,6 +108,7 @@
                                 type="text"
                                 placeholder="Husband first Name"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                required
                             />
                         </div>
                         <div>
@@ -118,6 +124,7 @@
                                 type="text"
                                 placeholder="Wife first Name"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                required
                             />
                         </div>
 
@@ -134,6 +141,7 @@
                                 type="text"
                                 placeholder="Wife Middle Name"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                required
                             />
                         </div>
                         <div>
@@ -149,6 +157,7 @@
                                 type="text"
                                 placeholder="Wife Last Name"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                required
                             />
                         </div>
                         <div>
@@ -164,6 +173,7 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 v-model="form.country"
                                 name="country"
+                                required
                             >
                                 <option value="">Select Country</option>
                                 <option value="PHILIPPINES">PHILIPPINES</option>
@@ -183,6 +193,7 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 v-model="form.province"
                                 name="province"
+                                required
                             >
                                 <option value="">Select Province</option>
                                 <option
@@ -208,6 +219,7 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 v-model="form.city_or_municipality"
                                 name="provide"
+                                required
                             >
                                 <option value="">
                                     Select Municipality/City
@@ -235,6 +247,7 @@
                                 type="date"
                                 placeholder="Wife Middle Name"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                required
                             />
                         </div>
                     </div>
@@ -255,6 +268,7 @@
                             <select
                                 v-model="form.purpose"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                required
                             >
                                 <option value="">Select</option>
                                 <option
@@ -452,6 +466,11 @@ function clearData() {
     documentDelivery.value = "";
 }
 const handleSubmitForMarriageCert = async () => {
+    //use json if there are no files to be upload like this
+    // const payload = {
+    // ...form,
+    //     documentDelivery: documentDelivery.value,
+    // };
     try {
         const payload = {
             ...form,
