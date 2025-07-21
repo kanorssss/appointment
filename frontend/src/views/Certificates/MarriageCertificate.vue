@@ -206,7 +206,7 @@
                             </label>
                             <select
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                v-model="form.city_municipality"
+                                v-model="form.city_or_municipality"
                                 name="provide"
                             >
                                 <option value="">
@@ -253,7 +253,7 @@
                                 >
                             </label>
                             <select
-                                v-model="form.relationship_to_owner"
+                                v-model="form.purpose"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             >
                                 <option value="">Select</option>
@@ -400,6 +400,8 @@ import { useProvinces } from "../../views/composable/useProvinces.js";
 import { useCityAndMunicipality } from "../../views/composable/cityAndMunicipality.js";
 import { useStore } from "vuex";
 
+import Swal from "sweetalert2";
+
 //disabled the selection for the delivation
 const store = useStore();
 const deliveryTo = ref("");
@@ -423,13 +425,13 @@ const form = reactive({
     husband_middle_name: "",
     husband_first_name: "",
     wife_last_name: "",
-    country: "",
-    province: "",
-    city_municipality: "",
-    date_of_marriage: "",
-    relationship_to_owner: "",
     wife_middle_name: "",
     wife_first_name: "",
+    country: "",
+    province: "",
+    city_or_municipality: "",
+    date_of_marriage: "",
+    purpose: "",
 });
 
 //clear form data
@@ -441,27 +443,36 @@ function clearData() {
     form.wife_last_name = "";
     form.country = "";
     form.province = "";
-    form.city_municipality = "";
+    form.city_or_municipality = "";
     form.date_of_marriage = "";
-    form.relationship_to_owner = "";
-    form.relationship_to_owner = "";
+    form.purpose = "";
+
     form.wife_middle_name = "";
     form.wife_first_name = "";
     documentDelivery.value = "";
 }
 const handleSubmitForMarriageCert = async () => {
     try {
-        const formData = new FormData();
-        //loop for the reactive fields
-        for (const [key, value] of Object.entries(form)) {
-            formData.append(key, value);
-        }
-        formData.append("documentDelivery", documentDelivery.value);
+        const payload = {
+            ...form,
+            documentDelivery: documentDelivery.value,
+        };
 
-        await store.dispatch("storeMarriageCertificate", formData);
+        await store.dispatch("storeMarriageCertificate", payload);
+        clearData();
+        Swal.fire({
+            title: "Success!",
+            text: "Marriage Certificate request submitted successfully.",
+            icon: "success",
+            confirmButtonText: "OK",
+        });
     } catch (error) {
-        console.log(error);
-        alert("An error occurred while submitting the form.");
+        // console.log(error);
+        const errorMessage =
+            error.response?.data?.error ||
+            error.message ||
+            "Failed to save employee";
+        Swal.fire("Error!", errorMessage, "error");
     }
 };
 </script>
