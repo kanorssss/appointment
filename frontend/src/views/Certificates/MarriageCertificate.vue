@@ -398,8 +398,10 @@
 import { ref, watch, reactive } from "vue";
 import { useProvinces } from "../../views/composable/useProvinces.js";
 import { useCityAndMunicipality } from "../../views/composable/cityAndMunicipality.js";
+import { useStore } from "vuex";
 
 //disabled the selection for the delivation
+const store = useStore();
 const deliveryTo = ref("");
 const documentDelivery = ref("");
 const { provinces, loading, error } = useProvinces();
@@ -455,8 +457,11 @@ const handleSubmitForMarriageCert = async () => {
             formData.append(key, value);
         }
         formData.append("documentDelivery", documentDelivery.value);
+
+        await store.dispatch("storeMarriageCertificate", formData);
     } catch (error) {
         console.log(error);
+        alert("An error occurred while submitting the form.");
     }
 };
 </script>
