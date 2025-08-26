@@ -433,19 +433,6 @@ watch(documentDelivery, (newValue) => {
 //save data
 const form = reactive({
     number_of_copies: "",
-    certificate_type: "Marriage Certificate",
-    type_of_request: "Certified True Copy of Marriage Certificate",
-    husband_last_name: "",
-    husband_middle_name: "",
-    husband_first_name: "",
-    wife_last_name: "",
-    wife_middle_name: "",
-    wife_first_name: "",
-    country: "",
-    province: "",
-    city_or_municipality: "",
-    date_of_marriage: "",
-    purpose: "",
 });
 
 //clear form data
@@ -486,12 +473,7 @@ const handleSubmitForMarriageCert = async () => {
             confirmButtonText: "OK",
         });
     } catch (error) {
-        // console.log(error);
-        const errorMessage =
-            error.response?.data?.error ||
-            error.message ||
-            "Failed to save employee";
-        Swal.fire("Error!", errorMessage, "error");
+        console.log(error);
     }
 };
 </script>

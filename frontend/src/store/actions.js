@@ -33,7 +33,29 @@ export async function storeMarriageCertificate({ commit }, payload) {
     }
 }
 
+export async function storeDeathCertificate({ commit }, payload) {
+    commit("SET_API_IS_LOADING", true);
+    commit("SET_API_ERROR", null);
+    commit("SET_API_ERRORS", null);
+
+    try {
+        let dataToSend = payload;
+        const response = await axiosClient.post("/deathCert", dataToSend);
+        commit("SET_API_RESPONSE", response.data); //set api response
+    } catch (error) {
+        commit("SET_API_ERROR", error.response?.data?.message || error.message);
+        commit("SET_API_ERRORS", error.response?.data?.errors || null);
+    } finally {
+        commit("SET_API_IS_LOADING", false);
+    }
+}
+export function resetApiResponse({ commit }) {
+    commit("SET_API_RESPONSE", null); // Reset the API response in Vuex state
+}
+
 export default {
     storeCertificate,
     storeMarriageCertificate,
+    storeDeathCertificate,
+    resetApiResponse,
 };
