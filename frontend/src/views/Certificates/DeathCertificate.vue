@@ -18,7 +18,7 @@
                                 readonly
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 text-gray-700"
                             />
-                            <p class="text-red-500 text-sm"></p>
+                            <p class="text-red-500 text-sm text-sm"></p>
                         </div>
                     </div>
 
@@ -71,7 +71,8 @@
                             <label
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
-                                Deceased's Last Name<span class="text-red-500"
+                                Deceased's Last Name<span
+                                    class="text-red-500 text-sm"
                                     >*</span
                                 >
                             </label>
@@ -82,7 +83,7 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                             <p
-                                class="text-red-500"
+                                class="text-red-500 text-sm"
                                 v-if="apiErrors?.deceased_last_name?.[0]"
                             >
                                 {{ apiErrors.deceased_last_name[0] }}
@@ -92,7 +93,8 @@
                             <label
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
-                                Deceased's First Name<span class="text-red-500"
+                                Deceased's First Name<span
+                                    class="text-red-500 text-sm"
                                     >*</span
                                 >
                             </label>
@@ -103,7 +105,7 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                             <p
-                                class="text-red-500"
+                                class="text-red-500 text-sm"
                                 v-if="apiErrors?.deceased_first_name?.[0]"
                             >
                                 {{ apiErrors.deceased_first_name[0] }}
@@ -113,7 +115,8 @@
                             <label
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
-                                Deceased's Middle Name<span class="text-red-500"
+                                Deceased's Middle Name<span
+                                    class="text-red-500 text-sm"
                                     >*</span
                                 >
                             </label>
@@ -124,7 +127,7 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                             <p
-                                class="text-red-500"
+                                class="text-red-500 text-sm"
                                 v-if="apiErrors?.deceased_middle_name?.[0]"
                             >
                                 {{ apiErrors.deceased_middle_name[0] }}
@@ -135,7 +138,7 @@
                             <label
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
-                                Place of Death<span class="text-red-500"
+                                Place of Death<span class="text-red-500 text-sm"
                                     >*</span
                                 >
                             </label>
@@ -148,7 +151,7 @@
                                 <option value="PHILIPPINES">PHILIPPINES</option>
                             </select>
                             <p
-                                class="text-red-500"
+                                class="text-red-500 text-sm"
                                 v-if="apiErrors?.country?.[0]"
                             >
                                 {{ apiErrors.country[0] }}
@@ -160,7 +163,7 @@
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
                                 Place of Death (Province)<span
-                                    class="text-red-500"
+                                    class="text-red-500 text-sm"
                                     >*</span
                                 >
                             </label>
@@ -179,7 +182,7 @@
                                 </option>
                             </select>
                             <p
-                                class="text-red-500"
+                                class="text-red-500 text-sm"
                                 v-if="apiErrors?.province?.[0]"
                             >
                                 {{ apiErrors.province[0] }}
@@ -191,7 +194,7 @@
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
                                 Place of Death (City/Municipality)<span
-                                    class="text-red-500"
+                                    class="text-red-500 text-sm"
                                     >*</span
                                 >
                             </label>
@@ -212,7 +215,7 @@
                                 </option>
                             </select>
                             <p
-                                class="text-red-500"
+                                class="text-red-500 text-sm"
                                 v-if="apiErrors?.city_or_municipality?.[0]"
                             >
                                 {{ apiErrors.city_or_municipality[0] }}
@@ -223,7 +226,9 @@
                             <label
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
-                                Date of Death<span class="text-red-500">*</span>
+                                Date of Death<span class="text-red-500 text-sm"
+                                    >*</span
+                                >
                             </label>
                             <input
                                 v-model="date_of_death"
@@ -231,7 +236,7 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                             <p
-                                class="text-red-500"
+                                class="text-red-500 text-sm"
                                 v-if="apiErrors?.date_of_death?.[0]"
                             >
                                 {{ apiErrors.date_of_death[0] }}
@@ -242,7 +247,7 @@
                             <label
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
-                                Sex<span class="text-red-500">*</span>
+                                Sex<span class="text-red-500 text-sm">*</span>
                             </label>
                             <div class="flex items-center space-x-6">
                                 <label class="inline-flex items-center">
@@ -267,7 +272,10 @@
                                     <span class="ml-2 text-gray-700">No</span>
                                 </label>
                             </div>
-                            <p class="text-red-500" v-if="apiErrors?.sex?.[0]">
+                            <p
+                                class="text-red-500 text-sm"
+                                v-if="apiErrors?.sex?.[0]"
+                            >
                                 {{ apiErrors.sex[0] }}
                             </p>
                         </div>
@@ -278,7 +286,8 @@
                             <label
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
-                                Father's Last Name<span class="text-red-500"
+                                Father's Last Name<span
+                                    class="text-red-500 text-sm"
                                     >*</span
                                 >
                             </label>
@@ -288,7 +297,7 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                             <p
-                                class="text-red-500"
+                                class="text-red-500 text-sm"
                                 v-if="apiErrors?.fathers_last_name?.[0]"
                             >
                                 {{ apiErrors.fathers_last_name[0] }}
@@ -299,7 +308,8 @@
                             <label
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
-                                Father's First Name<span class="text-red-500"
+                                Father's First Name<span
+                                    class="text-red-500 text-sm"
                                     >*</span
                                 >
                             </label>
@@ -309,7 +319,7 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                             <p
-                                class="text-red-500"
+                                class="text-red-500 text-sm"
                                 v-if="apiErrors?.fathers_first_name?.[0]"
                             >
                                 {{ apiErrors.fathers_first_name[0] }}
@@ -320,7 +330,8 @@
                             <label
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
-                                Father's Middle Name<span class="text-red-500"
+                                Father's Middle Name<span
+                                    class="text-red-500 text-sm"
                                     >*</span
                                 >
                             </label>
@@ -330,7 +341,7 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                             <p
-                                class="text-red-500"
+                                class="text-red-500 text-sm"
                                 v-if="apiErrors?.fathers_middle_name?.[0]"
                             >
                                 {{ apiErrors.fathers_middle_name[0] }}
@@ -342,7 +353,7 @@
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
                                 Mother's Maiden Last Name<span
-                                    class="text-red-500"
+                                    class="text-red-500 text-sm"
                                     >*</span
                                 >
                             </label>
@@ -352,7 +363,7 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                             <p
-                                class="text-red-500"
+                                class="text-red-500 text-sm"
                                 v-if="apiErrors?.mothers_last_name?.[0]"
                             >
                                 {{ apiErrors.mothers_last_name[0] }}
@@ -363,7 +374,7 @@
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
                                 Mother's Maiden First Name<span
-                                    class="text-red-500"
+                                    class="text-red-500 text-sm"
                                     >*</span
                                 >
                             </label>
@@ -373,7 +384,7 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                             <p
-                                class="text-red-500"
+                                class="text-red-500 text-sm"
                                 v-if="apiErrors?.mothers_first_name?.[0]"
                             >
                                 {{ apiErrors.mothers_first_name[0] }}
@@ -385,7 +396,7 @@
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
                                 Mother's Maiden Middle Name<span
-                                    class="text-red-500"
+                                    class="text-red-500 text-sm"
                                     >*</span
                                 >
                             </label>
@@ -395,7 +406,7 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                             <p
-                                class="text-red-500"
+                                class="text-red-500 text-sm"
                                 v-if="apiErrors?.mothers_middle_name?.[0]"
                             >
                                 {{ apiErrors.mothers_middle_name[0] }}
@@ -410,7 +421,7 @@
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
                                 Relationship to the owner<span
-                                    class="text-red-500"
+                                    class="text-red-500 text-sm"
                                     >*</span
                                 >
                             </label>
@@ -448,7 +459,7 @@
                             >
                                 Document(s) for delivery to an Embassy or
                                 Government Agency?
-                                <span class="text-red-500">*</span>
+                                <span class="text-red-500 text-sm">*</span>
                             </label>
 
                             <div class="flex items-center space-x-6">
@@ -483,7 +494,9 @@
                             <label
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
-                                Delivery To<span class="text-red-500">*</span>
+                                Delivery To<span class="text-red-500 text-sm"
+                                    >*</span
+                                >
                             </label>
                             <select
                                 v-model="delivery_to"
@@ -508,7 +521,7 @@
                                 class="block text-sm font-medium text-gray-700 mb-2"
                             >
                                 Purpose of Request
-                                <span class="text-red-500">*</span>
+                                <span class="text-red-500 text-sm">*</span>
                             </label>
 
                             <select
@@ -576,13 +589,26 @@ watch(
     async (response) => {
         if (response) {
             Swal.fire({
-                title: "Success!",
+                title: "Are you sure?",
                 text: response.message || "Appointment successful!",
-                icon: "success",
-                confirmButtonText: "OK",
+                icon: "question", // can be "warning" too
+                showCancelButton: true,
+                confirmButtonText: "Yes",
+                cancelButtonText: "No",
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    await store.dispatch("resetApiResponse");
+                    resetForm();
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Appointment confirmed successfully!",
+                        icon: "success",
+                        confirmButtonText: "OK",
+                    });
+                } else if (result.isDismissed) {
+                    console.log("User cancelled");
+                }
             });
-            await store.dispatch("resetApiResponse");
-            resetForm();
         }
     },
     { immediate: true }
@@ -643,8 +669,6 @@ const handeDeathCert = async () => {
 };
 
 const resetForm = () => {
-    certificate_type.value = "";
-    type_of_request.value = "";
     number_of_copies.value = "";
     deceased_last_name.value = "";
     deceased_middle_name.value = "";
